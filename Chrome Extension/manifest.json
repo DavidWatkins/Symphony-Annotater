@@ -1,14 +1,24 @@
 {
-  "name": "Annotater",
-  "version": "1.0",
   "manifest_version": 2,
+
+  "name": "Annotater",
   "description": "A Symphony chrome extension",
+  "version": "1.0",
+
   "browser_action": {
-    "popup": "popup.html"
+    "default_icon": "pencil16.png",
+    "default_popup": "popup.html"
   },
   "icons": { "16": "pencil16.png", "128": "pencil128.png" },
   "permissions": [
     "activeTab",
     "https://ajax.googleapis.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "css": ["new.css"],
+      "js": ["jquery.min.js", "background.js", "tinymce.min.js"]
+    }
   ]
 }
